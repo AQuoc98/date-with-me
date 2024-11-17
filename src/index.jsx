@@ -1,14 +1,30 @@
+import "normalize.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "normalize.css";
-import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import ErrorPage from "./components/pages/error";
+import HomePage from "./components/pages/home";
+import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+
+const router = createBrowserRouter([
+  {
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 

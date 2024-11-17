@@ -1,7 +1,12 @@
-import "./App.css";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  return <div className="text-pink-500">Home Page</div>;
+  return (
+    <div className="relative overflow-hidden h-screen">
+      <Outlet />
+    </div>
+  );
 }
 
 export default App;
