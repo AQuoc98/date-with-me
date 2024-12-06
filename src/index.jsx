@@ -7,6 +7,7 @@ import ErrorPage from "./components/pages/error";
 import HomePage from "./components/pages/home";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { GlobalStateProvider } from "./contexts/global-state-context";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <GlobalStateProvider>
+      <RouterProvider router={router} />
+    </GlobalStateProvider>
   </React.StrictMode>,
 );
 

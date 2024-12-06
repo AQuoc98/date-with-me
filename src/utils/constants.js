@@ -30,3 +30,7 @@ export const HEART_CONFIGS = [
     moveDuration: "7s",
   },
 ];
+
+export const INITIAL_STATE = {
+  isAccepted: false,
+};
