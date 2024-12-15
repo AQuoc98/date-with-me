@@ -16,7 +16,11 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "prettier": "prettier --write \"src/**/*.{js,jsx,css}\" --cache --ignore-path .prettierignore",
+    "lint": "eslint .",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "eslintConfig": {
     "extends": [
@@ -37,16 +41,31 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.14.0",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.20",
     "daisyui": "^4.12.14",
     "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.11.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "postcss": "^8.4.47",
     "prettier": "3.3.3",
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.10"
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx}": [
+      "npm run lint",
+      "npm run prettier"
+    ],
+    "./src/*.css": [
+      "npm run prettier"
+    ]
   }
 }

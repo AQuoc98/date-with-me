@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 import HeartsAnimation from "./components/molecules/hearts-animation";
 
